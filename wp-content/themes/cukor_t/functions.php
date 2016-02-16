@@ -244,6 +244,18 @@ function bones_fonts() {
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
+function get_portfolio_on_main() {
+  $child_of = get_cat_ID( 'portfolio' );
+  $args = array(
+      'child_of' => $child_of,
+  );
+
+  $categories = get_categories($args);
+
+  var_dump($categories);
+
+}
+
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
