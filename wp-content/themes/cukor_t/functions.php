@@ -256,6 +256,28 @@ function get_portfolio_on_main() {
 
 }
 
+/**
+ *
+ */
+function get_services_on_main()
+{
+  if (is_home()) {
+    $cat_id = get_cat_ID('services');
+    $query = new WP_Query('cat=' . $cat_id);
+
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();
+
+        echo the_permalink();
+        echo the_post_thumbnail('full');
+      }
+    }
+
+  }
+}
+
+//add_action('posts_selection', 'get_portfolio_on_main');
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

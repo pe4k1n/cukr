@@ -2,12 +2,9 @@
 
 <?
 
-$child_of = get_cat_ID( 'portfolio' );
-$args = array(
-    'child_of' => $child_of,
-);
+get_services_on_main();
 
-$categories = get_categories($args);
+//die;
 
 ?>
 
