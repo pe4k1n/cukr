@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
 <?
+//get_portfolio_on_main();
 
-get_services_on_main();
+//get_services_on_main();
 
+//print apply_filters( 'taxonomy-images-list-the-terms', '' );
 //die;
-
+show_portfolio_on_main();
 ?>
 
 <div id="content">
