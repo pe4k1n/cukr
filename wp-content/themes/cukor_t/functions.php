@@ -295,9 +295,6 @@ function show_portfolio_on_main() {
     var_dump($items);
 }
 
-/**
- *
- */
 function get_services_on_main()
 {
     if (is_home()) {
