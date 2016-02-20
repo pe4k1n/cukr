@@ -244,6 +244,53 @@ function bones_fonts() {
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
+
+//    <!-- Plugin JavaScript -->
+//    <script src="js/wow.min.js"></script>
+//    <!-- Custom Theme JavaScript -->
+//    <script src="js/creative.js"></script>
+
+function cukor_scripts_basic() {
+    $js_url = get_template_directory_uri() . '/library/js/';
+
+    wp_register_script( 'jquery', $js_url . 'jquery.js',  array(), false, true);
+    wp_enqueue_script( 'jquery' );
+
+    wp_register_script( 'bootstrap-min', $js_url . 'bootstrap.min.js',  array(), false, true);
+    wp_enqueue_script( 'bootstrap-min' );
+
+    wp_register_script( 'jquery-easing', $js_url. 'jquery.easing.min.js',  array(), false, true);
+    wp_enqueue_script( 'jquery-easing' );
+
+    wp_register_script( 'jquery-fittext', $js_url. 'jquery.fittext.js',  array(), false, true);
+    wp_enqueue_script( 'jquery-fittext' );
+
+    wp_register_script( 'wow-min', $js_url. 'wow.min.js',  array(), false, true);
+    wp_enqueue_script( 'wow-min' );
+
+    wp_register_script( 'creative', $js_url. 'creative.js',  array(), false, true);
+    wp_enqueue_script( 'creative' );
+}
+
+add_action( 'wp_enqueue_scripts', 'cukor_scripts_basic');
+
+function cukor_styles()
+{
+    $css_url = get_template_directory_uri() . '/library/css/';
+
+    wp_register_style( 'bootstrap-min', $css_url . 'bootstrap.min.css' );
+    wp_enqueue_style( 'bootstrap-min' );
+
+    wp_register_style( 'animate-min', $css_url . 'animate.min.css' );
+    wp_enqueue_style( 'animate-min' );
+
+    wp_register_style( 'cu-style', $css_url . 'cu.style.css' );
+    wp_enqueue_style( 'cu-style' );
+}
+add_action( 'wp_enqueue_scripts', 'cukor_styles' );
+
+
+
 function get_portfolio_on_main_links() {
     if (is_home()) {
         $links  = array();
@@ -291,8 +338,18 @@ function get_portfolio_on_main_links() {
 
 function show_portfolio_on_main() {
     $items = get_portfolio_on_main_links();
+    $output = '<section class="no-padding" id="portfolio" data-id="3"><div class="container-fluid"><div class="row no-gutter">';
 
-    var_dump($items);
+    foreach ($items as $url => $img) {
+        $output .= '<div class="col-lg-4 col-sm-6">';
+        $output .= '<a href="'.$url.'" class="portfolio-box">';
+        $output .= '<img src="'.$img.'" class="img-responsive" alt="">';
+        $output .= '<div class="portfolio-box-caption"></div></a></div>';
+    }
+
+    $output .= '</div></div></section>';
+
+    return $output;
 }
 
 function get_services_on_main()
