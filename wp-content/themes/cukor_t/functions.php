@@ -369,6 +369,31 @@ function get_services_on_main()
     }
 }
 
+function get_post_img_array() {
+    if (is_single()) {
+        $images = get_attached_media( 'image' );
 
+        $i = 1;
+        $ret = '';
+        $classBig = '<div class="col-sm-7">';
+        $classSmall = '<div class="col-sm-5">';
+        foreach ($images as $img) {
+            $class = $classBig;
+            if ($i % 2 == 0) {
+                $class = $classSmall;
+            }
+            $ret .= $class;
+            $ret .= '<span class="center-block">';
+            $ret .= '<img src="'.$img->guid.'" class="img-responsive center-block portfolio_item_img" alt="">';
+            $ret .= '</span></div>';
+            $i++;
+        }
+        return $ret;
+    }
+}
+
+function get_cukor_img_url() {
+    return get_template_directory_uri() . '/library/img/';
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

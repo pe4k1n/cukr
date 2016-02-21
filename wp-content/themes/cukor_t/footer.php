@@ -6,7 +6,7 @@
 				<div class="col-sm-2">
 					<!--todo class name-->
 					<div class="padding_top_30 hidden-xs"></div>
-					<img src="img/logo_vniz.png" class="img-responsive logo_bottom center-block" alt="">
+					<img src="<?=get_cukor_img_url();?>logo_vniz.png" class="img-responsive logo_bottom center-block" alt="">
 				</div>
 				<!--http://stackoverflow.com/questions/18777235/center-content-in-responsive-bootstrap-navbar-->
 				<div class="col-sm-8 text-center">
@@ -42,6 +42,6 @@
 		</div>
 	</section>
 </footer>
-<?php wp_footer(); ?>
+<?php //wp_footer(); ?>
 </body>
 </html>

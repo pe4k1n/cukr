@@ -29,8 +29,8 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand page-scroll" href="#page-top">
-				<img src="img/logo_white.png" alt="cukor" id="logo_white">
+			<a class="navbar-brand page-scroll" href="<?=home_url();?>>">
+				<img src="<?=get_cukor_img_url()?>logo_white.png" alt="cukor" id="logo_white">
 			</a>
 		</div>
 
